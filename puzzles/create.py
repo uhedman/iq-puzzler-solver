@@ -1,10 +1,9 @@
 # Hecho con chatGPT
-
 import cv2
 import numpy as np
 
 # Cargar la imagen
-image_path = 'example.png'
+image_path = 'puzzle2.png'
 image = cv2.imread(image_path)
 
 # Coordenadas de los píxeles centrales de las casillas
@@ -12,8 +11,11 @@ cell_centers = [(i * image.shape[0] // 5 + image.shape[0] // 10, j * image.shape
                 for i in range(5) for j in range(11)]
 
 # Crear una lista de colores únicos y una matriz para almacenar los valores numéricos
-unique_colors = []
+unique_colors = [[85, 79, 88]]
 color_matrix = np.zeros((5, 11), dtype=int)
+
+def colored(rgb, n):
+    return f'\033[38;2;{rgb[0]};{rgb[1]};{rgb[2]}m{n}'
 
 # Procesar cada pixel central de las casillas
 for idx, (x, y) in enumerate(cell_centers):
@@ -27,9 +29,7 @@ for idx, (x, y) in enumerate(cell_centers):
     col = idx % 11
     color_matrix[row, col] = color_index
 
-print("Colores únicos detectados:")
-for index, color in enumerate(unique_colors):
-    print(f"Color {index + 1}: RGB{color}")
-
 print("\nMatriz de colores:")
-print(color_matrix)
+for row in color_matrix:
+    colored_row = [colored(unique_colors[index-1], str(index)) for col, index in enumerate(row)]
+    print(" ".join(colored_row))
