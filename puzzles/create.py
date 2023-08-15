@@ -29,7 +29,7 @@ for idx, (x, y) in enumerate(cell_centers):
     col = idx % 11
     color_matrix[row, col] = color_index
 
-print("\nMatriz de colores:")
+print("Matriz de colores:")
 for row in color_matrix:
     colored_row = [colored(unique_colors[index-1], str(index)) for col, index in enumerate(row)]
     print(" ".join(colored_row))
