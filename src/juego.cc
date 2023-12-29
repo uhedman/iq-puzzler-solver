@@ -1,6 +1,7 @@
+#include <iostream>
 #include "juego.hh"
 #include "pieza.hh"
-#include <iostream>
+#include "lib.cc"
 using namespace std;
 
 Juego::Juego(char matriz[5][11]) {
@@ -30,7 +31,7 @@ void
 Juego::Print() {
   for (int i = 0; i < 5; i++) {
     for (int j = 0; j < 11; j++) {
-      cout << tablero[i][j];
+      color(tablero[i][j]);
     }
     cout << endl;
   }

@@ -2,10 +2,7 @@
 import cv2
 import numpy as np
 
-letters = "abcdefghijklmn"
-
-def colored(rgb, n):
-    return f'\033[38;2;{rgb[0]};{rgb[1]};{rgb[2]}m{letters[n]}\033[0m'
+letters = "vcaqpbmjgzrfn"
 
 for i in range(1,5):
     # Cargar la imagen
@@ -17,10 +14,9 @@ for i in range(1,5):
                     for i in range(5) for j in range(11)]
 
     # Crear una lista de colores únicos y una matriz para almacenar los valores numéricos
-    unique_colors = [[144, 41, 128], [105, 155, 0], [46, 40, 183],
-                     [62, 198, 139], [191, 203, 123], [247, 215, 141],
-                     [85, 79, 88], [239, 174, 0], [35, 29, 238],
-                     [171, 113, 241], [29, 147, 247], [1, 220, 255], [179, 102, 1]]
+    unique_colors = [[105, 155, 0], [247, 215, 141], [1, 220, 255], [191, 203, 123], 
+                     [144, 41, 128], [46, 40, 183], [62, 198, 139], [179, 102, 1], 
+                     [85, 79, 88], [239, 174, 0], [35, 29, 238], [171, 113, 241], [29, 147, 247]]
     color_matrix = np.zeros((5, 11), dtype=int)
 
     # Procesar cada pixel central de las casillas
@@ -34,5 +30,5 @@ for i in range(1,5):
 
     print("Matriz de colores:")
     for row in color_matrix:
-        colored_row = [colored(unique_colors[index], index) for col, index in enumerate(row)]
+        colored_row = [letters[index] for index in row]
         print(" ".join(colored_row))

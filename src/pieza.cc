@@ -126,14 +126,14 @@ Pieza **crearPiezas() {
 
   i = 3;
   j = 2;
-  c = 'f';
+  c = 'q';
   int shape12[4][4] = {
     {1, 1, 1, 0},
     {0, 1, 1, 0},
     {0, 0, 0, 0},
     {0, 0, 0, 0}
   };
-  Pieza *faqua = new Pieza(i, j, c, shape12);
+  Pieza *aqua = new Pieza(i, j, c, shape12);
   
   Pieza **pcs = new Pieza*[12];
   pcs[0] = verde;
@@ -147,7 +147,7 @@ Pieza **crearPiezas() {
   pcs[8] = musgo;
   pcs[9] = bordo;
   pcs[10] = jazul;
-  pcs[11] = faqua;
+  pcs[11] = aqua;
 
   return pcs;
 }
